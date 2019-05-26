@@ -1,0 +1,6 @@
+com/secaidastudio/e04_mvc/dao/StudentDAO.class
+com/secaidastudio/e04_mvc/model/Student.class
+com/secaidastudio/e04_mvc/dao/GeneralDAO.class
+com/secaidastudio/e04_mvc/controller/StudentController.class
+com/secaidastudio/e04_mvc/utils/TimesUtils.class
+com/secaidastudio/e04_mvc/utils/CustomConnection.class
