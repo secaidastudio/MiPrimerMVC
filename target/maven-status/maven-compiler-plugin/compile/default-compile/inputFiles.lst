@@ -3,4 +3,7 @@
 /home/oscar/NetBeansProjects/E04_MVC/src/main/java/com/secaidastudio/e04_mvc/model/Student.java
 /home/oscar/NetBeansProjects/E04_MVC/src/main/java/com/secaidastudio/e04_mvc/dao/StudentDAO.java
 /home/oscar/NetBeansProjects/E04_MVC/src/main/java/com/secaidastudio/e04_mvc/dao/GeneralDAO.java
+/home/oscar/NetBeansProjects/E04_MVC/src/main/java/com/secaidastudio/e04_mvc/dao/CourseDAO.java
+/home/oscar/NetBeansProjects/E04_MVC/src/main/java/com/secaidastudio/e04_mvc/controller/CourseController.java
 /home/oscar/NetBeansProjects/E04_MVC/src/main/java/com/secaidastudio/e04_mvc/utils/TimesUtils.java
+/home/oscar/NetBeansProjects/E04_MVC/src/main/java/com/secaidastudio/e04_mvc/model/Course.java

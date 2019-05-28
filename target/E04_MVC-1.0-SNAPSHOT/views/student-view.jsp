@@ -45,3 +45,5 @@
 <div class="row">
     <a class="btn btn-primary" href="edit?id=${single_student.code}">Editar</a>
 </div>
+
+    <%@include file="templates/Footer.jsp" %>
