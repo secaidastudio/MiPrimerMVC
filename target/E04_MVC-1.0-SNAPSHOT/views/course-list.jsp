@@ -31,8 +31,8 @@ que proviene del StudentController.java usando metodo get
             <td><%=c.getDescription()%></td>
             <td><%=c.getCredits()%></td>
             <td>
-                <a class="btn btn-primary" href="edit?id=<%=c.getCode()%>">Editar</a>
-                <a class="btn btn-primary" href="view?id=<%=c.getCode()%>">Ver</a>
+                <a class="btn btn-primary" href="courses/edit?id=<%=c.getCode()%>">Editar</a>
+                <a class="btn btn-primary" href="courses/view?id=<%=c.getCode()%>">Ver</a>
             </td>
         </tr>      
         <%}%>
