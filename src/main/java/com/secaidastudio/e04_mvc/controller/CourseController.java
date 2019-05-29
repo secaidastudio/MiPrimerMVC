@@ -73,6 +73,11 @@ public class CourseController extends HttpServlet {
         dao.create(course);
         resp.sendRedirect(req.getContextPath()+"/courses");
     }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPut(req, resp); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     
