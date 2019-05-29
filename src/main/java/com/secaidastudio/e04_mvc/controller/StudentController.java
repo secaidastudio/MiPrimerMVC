@@ -100,4 +100,11 @@ public class StudentController extends HttpServlet {
 
     }
 
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("Updating current student"); 
+    }
+    
+    
+
 }
