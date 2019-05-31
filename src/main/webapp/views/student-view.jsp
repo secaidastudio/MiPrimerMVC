@@ -44,6 +44,11 @@
 
 <div class="row">
     <a class="btn btn-primary" href="students/edit?id=${single_student.code}">Editar</a>
+    <input class="btn btn-danger" type="submit" form="form-to-delete" value="Eliminar"/>
+    <form method="POST" name="form-to-delete" id="form-to-delete">
+        <input type="hidden" name="_method" value="DELETE"/>
+        <input type="hidden" name="code" value="${single_student.code}"/>
+    </form>
 </div>
 
     <%@include file="templates/Footer.jsp" %>

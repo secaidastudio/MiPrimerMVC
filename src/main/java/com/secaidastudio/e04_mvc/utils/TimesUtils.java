@@ -26,4 +26,11 @@ public class TimesUtils {
         }
         return null;
     }
+    
+    public static String parseToDDMMYYYY(Date date) {
+        if(date == null)
+            return null;
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/YYYY");
+        return formatter.format(date);
+    }
 }

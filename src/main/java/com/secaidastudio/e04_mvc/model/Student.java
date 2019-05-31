@@ -1,13 +1,14 @@
 package com.secaidastudio.e04_mvc.model;
 
 import java.util.Date;
+import com.secaidastudio.e04_mvc.utils.TimesUtils;
 
 /**
  *
  * @author oscar
  */
 public class Student {
-    private int code;
+    private long code;
     private String firstName;
     private String lastName;
     private String gender;
@@ -16,7 +17,7 @@ public class Student {
     private String guardian;
     private Date birthday;
 
-    public Student(int code, String firstName, String lastName, String gender, String email, String contactPhone, String guardian, Date birthday) {
+    public Student(long code, String firstName, String lastName, String gender, String email, String contactPhone, String guardian, Date birthday) {
         this.code = code;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -32,7 +33,7 @@ public class Student {
 
     
 
-    public int getCode() {
+    public long getCode() {
         return code;
     }
 
@@ -91,6 +92,10 @@ public class Student {
     public Date getBirthday() {
         return birthday;
     }
+    
+    public String getBirthdayAsString() {
+        return TimesUtils.parseToDDMMYYYY(birthday);
+    }
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
@@ -98,6 +103,7 @@ public class Student {
     public String getFullName() {
         return this.firstName + " " + this.lastName;
     }
+    
     
     
 }

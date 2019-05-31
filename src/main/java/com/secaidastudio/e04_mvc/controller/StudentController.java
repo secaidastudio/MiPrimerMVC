@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/students/*")
 public class StudentController extends HttpServlet {
-    
+
     //Crear un objeto student DAO
     StudentDAO dao = new StudentDAO();
 
@@ -50,7 +50,11 @@ public class StudentController extends HttpServlet {
                 redirectPage = "student-view.jsp";
                 break;
             case "/edit":
+                long idToEdit = Long.parseLong(req.getParameter("id"));
+                Student sToEdit = dao.findById(idToEdit);
+                req.setAttribute("single_student", sToEdit);
                 redirectPage = "student-edit.jsp";
+
                 break;
             case "/list":
             case "/":
@@ -83,10 +87,19 @@ public class StudentController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        if ("PUT".equals(req.getParameter("_method"))) {
+            doPut(req, resp);
+            return;
+        }
+
+        if ("DELETE".equals(req.getParameter("_method"))) {
+            doDelete(req, resp);
+            return;
+        }
         System.out.println("Creating new student");
-        
+
         Student student = new Student();
-        
+
         student.setFirstName(req.getParameter("firstName"));
         student.setLastName(req.getParameter("lastName"));
         student.setGender(req.getParameter("gender"));
@@ -94,17 +107,35 @@ public class StudentController extends HttpServlet {
         student.setContactPhone(req.getParameter("contactPhone"));
         student.setGuardian(req.getParameter("guardian"));
         student.setBirthday(TimesUtils.getFromDDMMYYY(req.getParameter("birthday")));
-        
+
         dao.create(student);
-        resp.sendRedirect(req.getContextPath()+ "/students");
+        resp.sendRedirect(req.getContextPath() + "/students");
 
     }
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("Updating current student"); 
+        System.out.println("Editing a student...");
+
+        Student edited = new Student();
+        edited.setFirstName(req.getParameter("firstName"));
+        edited.setLastName(req.getParameter("lastName"));
+        edited.setGender(req.getParameter("gender"));
+        edited.setEmail(req.getParameter("email"));
+        edited.setContactPhone(req.getParameter("contactPhone"));
+        edited.setGuardian(req.getParameter("guardian"));
+        edited.setBirthday(TimesUtils.getFromDDMMYYY(req.getParameter("birthday")));
+
+        dao.edit(Integer.parseInt(req.getParameter("code")), edited);
+        resp.sendRedirect(req.getContextPath() + "/students");
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("Deleting student...");
+        long id = Long.parseLong(req.getParameter("code"));
+        dao.delete(id);
+        resp.sendRedirect(req.getContextPath()+"/students");
     }
     
-    
-
 }
