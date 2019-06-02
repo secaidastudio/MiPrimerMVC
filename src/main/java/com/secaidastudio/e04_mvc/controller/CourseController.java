@@ -36,14 +36,18 @@ public class CourseController extends HttpServlet {
                 redirectPage="course-create.jsp";
                 break;
             case "/view":
-                int idToView = Integer.parseInt(req.getParameter("id"));
+                long idToView = Long.parseLong(req.getParameter("id"));
                 Course cToView = dao.findById(idToView);
                 req.setAttribute("single_course", cToView);
                 redirectPage = "course-view.jsp";
                 break;
             case "/edit":
+                long id = Long.parseLong(req.getParameter("id"));
+                Course cToEdit = dao.findById(id);
+                req.setAttribute("single_course", cToEdit);
                 redirectPage="course-edit.jsp";
                 break;
+            case "/list":
             case "/":
             case "":
                 List<Course> allCourses = dao.queryAll();
@@ -63,6 +67,17 @@ public class CourseController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        
+        if ("PUT".equals(req.getParameter("_method"))) {
+            doPut(req, resp);
+            return;
+        }
+        
+        if ("DELETE".equals(req.getParameter("_method"))) {
+            doDelete(req,resp);
+            return;
+        }
+        
         System.out.println("Creating new course");
         Course course = new Course();
         
@@ -76,7 +91,24 @@ public class CourseController extends HttpServlet {
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPut(req, resp); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Editing a course...");
+        
+        Course edited = new Course();
+        
+        edited.setName(req.getParameter("name"));
+        edited.setDescription(req.getParameter("description"));
+        edited.setCredits(Integer.parseInt(req.getParameter("credits")));
+        
+        dao.edit(Long.parseLong(req.getParameter("code")), edited);
+        resp.sendRedirect(req.getContextPath()+"/courses");
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("Deleting a course");
+        long id = Long.parseLong(req.getParameter("code"));
+        dao.delete(id);
+        resp.sendRedirect(req.getContextPath()+"/courses");
     }
     
     

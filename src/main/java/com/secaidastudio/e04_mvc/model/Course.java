@@ -6,12 +6,12 @@ package com.secaidastudio.e04_mvc.model;
  */
 public class Course {
 
-    private int code;
+    private long code;
     private String name;
     private String description;
     private int credits;
 
-    public Course(int code, String name, String description, int credits) {
+    public Course(long code, String name, String description, int credits) {
         this.code = code;
         this.name = name;
         this.description = description;
@@ -22,7 +22,7 @@ public class Course {
     }
 
     
-    public int getCode() {
+    public long getCode() {
         return code;
     }
 

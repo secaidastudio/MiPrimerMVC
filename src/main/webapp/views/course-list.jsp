@@ -23,7 +23,7 @@ que proviene del StudentController.java usando metodo get
             <th>Creditos</th>
         </tr>
     </thead>
-    
+
     <tbody>
         <% for (Course c : list_of_courses) {%>
         <tr>
@@ -38,5 +38,9 @@ que proviene del StudentController.java usando metodo get
         <%}%>
     </tbody>
 </table>
-    
-        <%@include file="templates/Footer.jsp" %>
+<div class="container" align="center">
+    <a class="btn btn-primary" href="courses/create">Nuevo curso</a>
+
+</div>
+
+<%@include file="templates/Footer.jsp" %>

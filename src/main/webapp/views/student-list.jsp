@@ -40,5 +40,8 @@ que proviene del StudentController.java usando metodo get
         <%}%>
     </tbody>
 </table>
-    
+    <div class="container" align="center">
+    <a class="btn btn-primary" href="students/create">Nuevo estudiante</a>
+
+</div>
         <%@include file="templates/Footer.jsp" %>

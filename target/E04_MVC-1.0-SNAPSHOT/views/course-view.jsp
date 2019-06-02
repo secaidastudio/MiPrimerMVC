@@ -27,7 +27,12 @@
 </div>
 
 <div class="row">
-    <a class="btn btn-primary" href="edit?id=${single_course.code}">Editar</a>    
+    <a class="btn btn-primary" href="courses/edit?id=${single_course.code}">Editar</a>
+    <input class="btn btn-danger" type="submit" form="form-to-delete" value="Eliminar"/>
+    <form method="POST" name="form-to-delete" id="form-to-delete">
+        <input type="hidden" name="_method" value="DELETE"/>
+        <input type="hidden" name="code" value="${single_course.code}"/>
+    </form>
 </div>
 
 <%@include file="templates/Footer.jsp" %>
