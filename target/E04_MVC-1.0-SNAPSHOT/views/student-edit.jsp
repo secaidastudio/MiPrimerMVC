@@ -52,6 +52,7 @@
     </div>
     
     <input class="btn btn-primary" type="submit" value="Guardar"/>
+    <a class="btn btn-danger" href="../index.html">Cancelar</a>
         
 </form>
     

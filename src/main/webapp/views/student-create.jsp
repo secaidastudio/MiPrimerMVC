@@ -43,6 +43,7 @@
         <input class="form-control" type="text" name="contactPhone"/>
     </div>
     <input class="btn btn-primary" type="submit" value="crear"/>
+    <a class="btn btn-danger" href="../index.html">Cancelar</a>
 </form>
 <%@include file="templates/Footer.jsp" %>
 

@@ -42,6 +42,7 @@ que proviene del StudentController.java usando metodo get
 </table>
     <div class="container" align="center">
     <a class="btn btn-primary" href="students/create">Nuevo estudiante</a>
+    <a class="btn btn-primary" href="../index.html">Pagina de inicio</a>
 
 </div>
         <%@include file="templates/Footer.jsp" %>

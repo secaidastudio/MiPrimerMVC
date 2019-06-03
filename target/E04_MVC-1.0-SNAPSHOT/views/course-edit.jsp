@@ -27,6 +27,7 @@
         <input class="form-control" type="text" name="credits" value="${single_course.credits}"/>
     </div>
     <input class="btn btn-primary" type="submit" value="Guardar"/>
+    <a class="btn btn-danger" href="../index.html">Cancelar</a>
 </form>
 
 <%@include file="templates/Footer.jsp" %>

@@ -29,6 +29,7 @@
 <div class="row">
     <a class="btn btn-primary" href="courses/edit?id=${single_course.code}">Editar</a>
     <input class="btn btn-danger" type="submit" form="form-to-delete" value="Eliminar"/>
+    <a class="btn btn-secondary" href="../index.html">Cancelar</a>
     <form method="POST" name="form-to-delete" id="form-to-delete">
         <input type="hidden" name="_method" value="DELETE"/>
         <input type="hidden" name="code" value="${single_course.code}"/>

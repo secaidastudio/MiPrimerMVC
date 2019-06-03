@@ -20,6 +20,7 @@
         <input class="form-control" type="number" name="courseCredits" required/>
     </div>
     <input class="btn btn-primary" type="submit" value="crear"/>
+    <a class="btn btn-danger" href="../index.html">Cancelar</a>
 </form>
 
 <%@include file="templates/Footer.jsp" %>
