@@ -16,8 +16,17 @@ public class Student {
     private String contactPhone;
     private String guardian;
     private Date birthday;
+    private double avg;
 
-    public Student(long code, String firstName, String lastName, String gender, String email, String contactPhone, String guardian, Date birthday) {
+    public double getAvg() {
+        return avg;
+    }
+
+    public void setAvg(double avg) {
+        this.avg = avg;
+    }
+
+    public Student(long code, String firstName, String lastName, String gender, String email, String contactPhone, String guardian, Date birthday, double avg) {
         this.code = code;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -26,6 +35,7 @@ public class Student {
         this.contactPhone = contactPhone;
         this.guardian = guardian;
         this.birthday = birthday;
+        this.avg = avg;
     }
 
     public Student() {        

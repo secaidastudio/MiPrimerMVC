@@ -1,5 +1,7 @@
 package com.secaidastudio.e04_mvc.dao;
 
+import com.secaidastudio.e04_mvc.model.Course;
+import com.secaidastudio.e04_mvc.model.Grade;
 import com.secaidastudio.e04_mvc.model.Student;
 import com.secaidastudio.e04_mvc.utils.CustomConnection;
 import java.sql.Connection;
@@ -58,7 +60,8 @@ public class StudentDAO implements GeneralDAO<Student> {
         try{
             Connection conn = CONN_WRAPPER.getConnection();
             //PREPARANDO UN STATEMENT
-            PreparedStatement stmnt = conn.prepareStatement("SELECT code, firstName, LastName, gender, email, contactPhone, guardian, birthday FROM student WHERE code = ?");
+            PreparedStatement stmnt = conn.prepareStatement("SELECT code, firstName, LastName,"
+                    +" gender, email, contactPhone, guardian, birthday FROM student WHERE code = ?");
             stmnt.setLong(1, id);
             
             ResultSet result = stmnt.executeQuery();
@@ -146,6 +149,42 @@ public class StudentDAO implements GeneralDAO<Student> {
         } catch(ClassNotFoundException | SQLException ex){
             ex.printStackTrace();
         }
+    }
+    
+    public void grade (Grade grade){
+        try {
+            Connection conn = CONN_WRAPPER.getConnection();
+            PreparedStatement stmnt = conn.prepareStatement(
+                    "INSERT INTO grade (studentCode, courseCode, grade) VALUES ("+grade.getStudentCode()+","+grade.getCourseCode()+","+grade.getGrade()+")"
+                    
+            );
+            stmnt.execute();
+        }catch (ClassNotFoundException | SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+    
+    public double average(long id){
+        double average = 0;
+        try {
+            Connection conn = CONN_WRAPPER.getConnection();
+            PreparedStatement stmnt = conn.prepareStatement(
+                    "SELECT ROUND(AVG(grade.grade),2) As avg from student INNER JOIN grade on"
+                    +" student.code = grade.studentCode " 
+                    +"where studentCode = ?"
+            );
+            
+            stmnt.setLong(1, id);
+            ResultSet result = stmnt.executeQuery();
+            if (result.next()) {
+                average = result.getDouble("avg");
+            }
+        }catch(ClassNotFoundException | SQLException ex){
+            ex.printStackTrace();
+        }
+        
+        
+        return average;
     }
     
 }

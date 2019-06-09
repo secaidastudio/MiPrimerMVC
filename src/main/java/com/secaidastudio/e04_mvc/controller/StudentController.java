@@ -56,6 +56,11 @@ public class StudentController extends HttpServlet {
                 redirectPage = "student-edit.jsp";
 
                 break;
+            
+           /* case "/grade":
+                redirectPage = "grades.jsp";
+                
+                break;*/
             case "/list":
             case "/":
             case "":
@@ -139,3 +144,5 @@ public class StudentController extends HttpServlet {
     }
     
 }
+
+

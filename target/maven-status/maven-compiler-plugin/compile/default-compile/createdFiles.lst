@@ -1,9 +1,12 @@
 com/secaidastudio/e04_mvc/dao/StudentDAO.class
+com/secaidastudio/e04_mvc/model/Grade.class
 com/secaidastudio/e04_mvc/model/Student.class
+com/secaidastudio/e04_mvc/dao/GradeDAO.class
 com/secaidastudio/e04_mvc/controller/CourseController.class
 com/secaidastudio/e04_mvc/dao/GeneralDAO.class
 com/secaidastudio/e04_mvc/controller/StudentController.class
 com/secaidastudio/e04_mvc/utils/TimesUtils.class
+com/secaidastudio/e04_mvc/controller/GradeController.class
 com/secaidastudio/e04_mvc/dao/CourseDAO.class
 com/secaidastudio/e04_mvc/utils/CustomConnection.class
 com/secaidastudio/e04_mvc/model/Course.class

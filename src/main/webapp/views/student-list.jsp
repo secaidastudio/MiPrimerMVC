@@ -1,4 +1,5 @@
 <%@page import="com.secaidastudio.e04_mvc.model.Student" %>
+<%@page import="com.secaidastudio.e04_mvc.dao.StudentDAO" %>
 <%@page import="java.util.List" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="templates/Header.jsp">
@@ -15,6 +16,11 @@ que proviene del StudentController.java usando metodo get
     scope="request"
     class="List<Student>"/>
 
+<%
+
+StudentDAO dao = new StudentDAO();
+%>
+
 <table class="table">
     <thead>
         <tr>
@@ -22,16 +28,20 @@ que proviene del StudentController.java usando metodo get
             <th>Correo</th>
             <th>Responsable</th>
             <th>Numero de contacto</th>
+            <th>Promedio</th>
         </tr>
     </thead>
     <tbody>
+        
         <% for (Student s : list_of_students) {%>
 
+ 
         <tr>
             <td><%=s.getFullName()%></td>
             <td><%=s.getEmail()%></td>
             <td><%=s.getGuardian()%></td>
             <td><%=s.getContactPhone()%></td>
+            <td><%= dao.average(s.getCode())%></td>
             <td>
                 <a class="btn btn-primary" href="students/edit?id=<%=s.getCode()%>">Editar</a>
                 <a class="btn btn-primary" href="students/view?id=<%=s.getCode()%>">Ver</a>

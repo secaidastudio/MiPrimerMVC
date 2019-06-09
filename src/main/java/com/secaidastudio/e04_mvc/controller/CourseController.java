@@ -47,6 +47,8 @@ public class CourseController extends HttpServlet {
                 req.setAttribute("single_course", cToEdit);
                 redirectPage="course-edit.jsp";
                 break;
+                
+                          
             case "/list":
             case "/":
             case "":
